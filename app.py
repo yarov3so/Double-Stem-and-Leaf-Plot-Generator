@@ -471,7 +471,7 @@ def doublestemandleaf():
         leafstring1=("  ".join(dict1[key])) #[::-1]
         leafstring2=("  ".join(dict2[key]))
         pad=maxsl-len(leafstring1)
-        st.markdown(f"<pre>{"  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2,language=""}</pre>", unsafe_allow_html=True)
+        st.markdown("<pre>{"  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2,language=""}</pre>", unsafe_allow_html=True)
         st.code("")
 
     return None
