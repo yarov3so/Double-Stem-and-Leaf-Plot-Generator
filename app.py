@@ -479,7 +479,7 @@ def doublestemandleaf():
         pad=maxsl-len(leafstring1)
         output+=("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2+"\n\n")
 
-    st.code(f"```\n{output}```")
+    st.code(f"```\n\n{output}```")
 
     return None
 
