@@ -147,7 +147,8 @@ def truncate(num,pos):
 
 def doublestemandleaf():
     
-    st.code("\nDouble Stem and Leaf Plot Generator by yarov3so\n")
+    st.text("\nby yarov3so\n")
+    st.text("Generates a compact and a full double stem and leaf plot for two (reasonably well-behaved) sets of values.")
 
     data1=st.text_input("Please enter all the data values from the first data set, separated by commas: ")
     data2=st.text_input("Please enter all the data values from the second data set, separated by commas: ")
@@ -318,7 +319,7 @@ def doublestemandleaf():
         leafstring2=("  ".join(dict2[key]))
         pad=maxsl-len(leafstring1)
         output+=((" "*pad) + leafstring1[::-1]+"  |  " + str(key) + "  |  " + leafstring2+"\n\n")
-    output=output[:-4]
+    output=output[:-2]
     st.code(f"```\n{output}\n```")
         
 
@@ -477,7 +478,7 @@ def doublestemandleaf():
         pad=maxsl-len(leafstring1)
         output+=("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2+"\n\n")
 
-    output=output[:-4]
+    output=output[:-2]
     st.code(f"```\n{output}\n```")
 
     return None
