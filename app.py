@@ -150,6 +150,10 @@ def doublestemandleaf():
     st.text("\nDouble Stem and Leaf Plot Generator by yarov3so\n")
     data1=comprehend(st.text_input("Please enter all the data values from the first data set, separated by commas. "))
     data2=comprehend(st.text_input("Please enter all the data values from the second data set, separated by commas. "))
+
+    if not (data1 or data2):
+        st.stop() 
+    
     data=data1+data2
     stem_pos=stempos(data)
 
