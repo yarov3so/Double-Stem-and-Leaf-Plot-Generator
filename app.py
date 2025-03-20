@@ -441,6 +441,7 @@ def doublestemandleaf():
     else:
         maxsl=max(len(("  ".join(dict1[key]))) for key in allkeys)
         
+    output=""
     
     if (0 in stems) and (len(smallerleaves1)!=0 or len(smallerleaves2)!=0):
 
@@ -456,10 +457,8 @@ def doublestemandleaf():
         leafstring1=("  ".join(sml1))
         leafstring2=("  ".join(sml2))
         pad=maxsl-len(leafstring1)
-        st.code("  "+(" "*pad) + leafstring1[::-1]+"  |  " + "L"+ " "*(Lpad-1) + "  |  " + leafstring2)
-        st.code("")
-
-    output=""
+        output+=("  "+(" "*pad) + leafstring1[::-1]+"  |  " + "L"+ " "*(Lpad-1) + "  |  " + leafstring2+"\n\n")
+        
     for key in sorted(list(allkeys)):
         
         if stem_pos==-1:
@@ -474,6 +473,7 @@ def doublestemandleaf():
         pad=maxsl-len(leafstring1)
         output+=("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2+"\n\n")
 
+    
     st.code(f"```\n{output}\n```")
 
     return None
