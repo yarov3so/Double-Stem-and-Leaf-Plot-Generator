@@ -180,8 +180,8 @@ def doublestemandleaf():
         data_copy=data[:]
     
     st.text("\nYou have entered:")
-    st.text("\nFirst data set:",data1)
-    st.text("\nSecond data set:",data1)
+    st.text(f"\nFirst data set: {data1}")
+    st.text(f"\nSecond data set: {data1}")
 
     st.text(f"\nThe double stem and leaf plot will represent variation in your data sets at the {pos_rep(stem_pos)}s position and lower, since, at each higher magnitude position, every data value has the same digit.")
     st.text(f"Indeed, truncating each value in your data sets right before the {pos_rep(stem_pos)}s position results in a data set with identical values (and possibly zeros when truncation eats up the entire number):\n")
