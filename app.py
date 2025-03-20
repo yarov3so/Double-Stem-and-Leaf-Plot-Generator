@@ -472,7 +472,7 @@ def doublestemandleaf():
         leafstring1=("  ".join(dict1[key])) #[::-1]
         leafstring2=("  ".join(dict2[key]))
         pad=maxsl-len(leafstring1)
-        output+=("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2)
+        output+=("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2+"\n\n")
 
     st.text(f"```\n{output}\n```")
 
