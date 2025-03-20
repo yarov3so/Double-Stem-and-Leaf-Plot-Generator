@@ -147,7 +147,7 @@ def truncate(num,pos):
 
 def doublestemandleaf():
     
-    st.markdown("*by yarov3so")
+    st.markdown("*by yarov3so*")
     st.text("Generates a compact and a full double stem and leaf plot for two (reasonably well-behaved) sets of values.")
 
     data1=st.text_input("Please enter all the data values from the first data set, separated by commas: ")
@@ -325,7 +325,7 @@ def doublestemandleaf():
 
     st.text("\nIn the full stem and leaf plot below, the 'L' row, if present, contains data values of magnitudes lower than the ones represented on the remainder of the plot. Their stem L does not contribute any digits, so their original values are precisely their leaf values.")
 
-    st.text("#### Full Double Stem and Leaf Plot:")
+    st.markdown("#### Full Double Stem and Leaf Plot:")
 
     stems=sl_range([add_zeros(str(num),ml) for num in data],stem_pos_py)
 
