@@ -187,12 +187,12 @@ def doublestemandleaf():
     if data_copy1!=data1:
         data_copy=data[:]
     
-    st.code("\nYou have entered:")
+    st.text("\nYou have entered:")
     st.code(f"\nFirst data set: {data1}")
     st.code(f"\nSecond data set: {data1}")
 
-    st.code(f"\nThe double stem and leaf plot will represent variation in your data sets at the {pos_rep(stem_pos)}s position and lower, since, at each higher magnitude position, every data value has the same digit.")
-    st.code(f"Indeed, truncating each value in your data sets right before the {pos_rep(stem_pos)}s position results in a data set with identical values (and possibly zeros when truncation eats up the entire number):\n")
+    st.text(f"\nThe double stem and leaf plot will represent variation in your data sets at the {pos_rep(stem_pos)}s position and lower, since, at each higher magnitude position, every data value has the same digit.")
+    st.text(f"Indeed, truncating each value in your data sets right before the {pos_rep(stem_pos)}s position results in a data set with identical values (and possibly zeros when truncation eats up the entire number):\n")
     st.code([truncate(num,stem_pos) for num in data])
 
     if len(set([truncate(num,stem_pos) for num in data])-{0})>=2:
