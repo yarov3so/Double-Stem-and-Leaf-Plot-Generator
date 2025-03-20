@@ -152,7 +152,7 @@ def doublestemandleaf():
     data1=st.text_input("Please enter all the data values from the first data set, separated by commas. ")
     data2=st.text_input("Please enter all the data values from the second data set, separated by commas. ")
 
-    if not (data1 or data2):
+    if data1=="" or data2=="":
         st.stop() 
     
     data1=comprehend(data1)
@@ -212,7 +212,7 @@ def doublestemandleaf():
     else:
         stem_pos_py=str(data_ml).index(".") - stem_pos
     
-    st.code("\n\nCompact Double Stem and Leaf Plot:\n\n")
+    st.text("\n\nCompact Double Stem and Leaf Plot:\n\n")
 
     stems=sl_range([add_zeros(str(num),ml) for num in data],stem_pos_py)
 
@@ -471,7 +471,7 @@ def doublestemandleaf():
         leafstring1=("  ".join(dict1[key])) #[::-1]
         leafstring2=("  ".join(dict2[key]))
         pad=maxsl-len(leafstring1)
-        st.code("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2)
+        st.code("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2,language="")
         st.code("")
 
     return None
