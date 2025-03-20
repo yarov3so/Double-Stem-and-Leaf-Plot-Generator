@@ -320,7 +320,7 @@ def doublestemandleaf():
         pad=maxsl-len(leafstring1)
         output+=((" "*pad) + leafstring1[::-1]+"  |  " + str(key) + "  |  " + leafstring2+"\n\n")
     
-    st.code(f"```\n{output}```")
+    st.code(f"```\n{output}```",language="")
         
 
     st.text("\nIn the full stem and leaf plot below, the 'L' row, if present, contains data values of magnitudes lower than the ones represented on the remainder of the plot. Their stem L does not contribute any digits, so their original values are precisely their leaf values.")
@@ -478,7 +478,7 @@ def doublestemandleaf():
         pad=maxsl-len(leafstring1)
         output+=("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2+"\n\n")
 
-    st.code(f"```\n{output}```")
+    st.code(f"```\n{output}```",language="")
 
     return None
 
