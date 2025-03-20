@@ -150,8 +150,8 @@ def doublestemandleaf():
     st.markdown("*by yarov3so*")
     st.text("Generates a compact and a full double stem and leaf plot for two (reasonably well-behaved) sets of values.")
 
-    data1=st.text_input("Please enter all the data values from the first data set, separated by commas: ")
-    data2=st.text_input("Please enter all the data values from the second data set, separated by commas: ")
+    data1=st.text_input("Enter all the values from the first data set, separated by commas: ")
+    data2=st.text_input("Enter all the values from the second data set, separated by commas: ")
 
     if data1=="" or data2=="":
         st.stop() 
