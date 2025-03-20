@@ -147,12 +147,16 @@ def truncate(num,pos):
 
 def doublestemandleaf():
     
-    st.text("\nDouble Stem and Leaf Plot Generator by yarov3so\n")
-    data1=comprehend(st.text_input("Please enter all the data values from the first data set, separated by commas. "))
-    data2=comprehend(st.text_input("Please enter all the data values from the second data set, separated by commas. "))
+    st.code("\nDouble Stem and Leaf Plot Generator by yarov3so\n")
+
+    data1=st.text_input("Please enter all the data values from the first data set, separated by commas. ")
+    data2=st.text_input("Please enter all the data values from the second data set, separated by commas. ")
 
     if not (data1 or data2):
         st.stop() 
+    
+    data1=comprehend(data1)
+    data2=comprehend(data2)
     
     data=data1+data2
     stem_pos=stempos(data)
@@ -183,32 +187,32 @@ def doublestemandleaf():
     if data_copy1!=data1:
         data_copy=data[:]
     
-    st.text("\nYou have entered:")
-    st.text(f"\nFirst data set: {data1}")
-    st.text(f"\nSecond data set: {data1}")
+    st.code("\nYou have entered:")
+    st.code(f"\nFirst data set: {data1}")
+    st.code(f"\nSecond data set: {data1}")
 
-    st.text(f"\nThe double stem and leaf plot will represent variation in your data sets at the {pos_rep(stem_pos)}s position and lower, since, at each higher magnitude position, every data value has the same digit.")
-    st.text(f"Indeed, truncating each value in your data sets right before the {pos_rep(stem_pos)}s position results in a data set with identical values (and possibly zeros when truncation eats up the entire number):\n")
-    st.text([truncate(num,stem_pos) for num in data])
+    st.code(f"\nThe double stem and leaf plot will represent variation in your data sets at the {pos_rep(stem_pos)}s position and lower, since, at each higher magnitude position, every data value has the same digit.")
+    st.code(f"Indeed, truncating each value in your data sets right before the {pos_rep(stem_pos)}s position results in a data set with identical values (and possibly zeros when truncation eats up the entire number):\n")
+    st.code([truncate(num,stem_pos) for num in data])
 
     if len(set([truncate(num,stem_pos) for num in data])-{0})>=2:
         return "ERROR: The data set has inconsistent spread or sharp jumps in magnitude - did you forget to exclude outliers? This can happen if removing one or more data points drastically (by orders of magnitude) reduces the overall spread of your data set."
                           
-    #st.text("\nNOTE: If above list has more several distinct non-zero values, then the stem-and-leaf plots below will be incorrect! This can happen if you forgot to exclude outliers from your data set.")
+    #st.code("\nNOTE: If above list has more several distinct non-zero values, then the stem-and-leaf plots below will be incorrect! This can happen if you forgot to exclude outliers from your data set.")
     
     if stem_pos==0:
-        st.text(f"\nAs such, to reconstruct the data values from the compact double stem and leaf plot, you can simply concatenate (join) \'{truncate(data_ml,stem_pos)}\' (on the left) with any stem-leaf combination (on the right). Remember to add a dot (decimal point) betweem stems and leaves!")
+        st.code(f"\nAs such, to reconstruct the data values from the compact double stem and leaf plot, you can simply concatenate (join) \'{truncate(data_ml,stem_pos)}\' (on the left) with any stem-leaf combination (on the right). Remember to add a dot (decimal point) betweem stems and leaves!")
     elif stem_pos==-1:
-        st.text(f"\nAs such, to reconstruct the data values from the compact double stem and leaf plot, you can simply concatenate (join) \'{truncate(data_ml,stem_pos)}\' (on the left), \'.\' (decimal point) and any stem-leaf combination (on the right).")
+        st.code(f"\nAs such, to reconstruct the data values from the compact double stem and leaf plot, you can simply concatenate (join) \'{truncate(data_ml,stem_pos)}\' (on the left), \'.\' (decimal point) and any stem-leaf combination (on the right).")
     else:
-        st.text(f"\nAs such, to reconstruct the data values from the compact double stem and leaf plot, you can simply concatenate (join) \'{truncate(data_ml,stem_pos)}\' (on the left) with any stem-leaf combination (on the right), except when the number is preceded by an apostrophe ('). In the latter case, the leaf itself is the original number.")
+        st.code(f"\nAs such, to reconstruct the data values from the compact double stem and leaf plot, you can simply concatenate (join) \'{truncate(data_ml,stem_pos)}\' (on the left) with any stem-leaf combination (on the right), except when the number is preceded by an apostrophe ('). In the latter case, the leaf itself is the original number.")
 
     if stem_pos>=0:
         stem_pos_py=ml - stem_pos-1
     else:
         stem_pos_py=str(data_ml).index(".") - stem_pos
     
-    st.text("\n\nCompact Double Stem and Leaf Plot:\n\n")
+    st.code("\n\nCompact Double Stem and Leaf Plot:\n\n")
 
     stems=sl_range([add_zeros(str(num),ml) for num in data],stem_pos_py)
 
@@ -311,12 +315,12 @@ def doublestemandleaf():
         leafstring1=("  ".join(dict1[key]))
         leafstring2=("  ".join(dict2[key]))
         pad=maxsl-len(leafstring1)
-        st.text((" "*pad) + leafstring1[::-1]+"  |  " + str(key) + "  |  " + leafstring2)
-        st.text("")
+        st.code((" "*pad) + leafstring1[::-1]+"  |  " + str(key) + "  |  " + leafstring2)
+        st.code("")
 
-    st.text("\nIn the full stem and leaf plot below, the 'L' row, if present, contains data values of magnitudes lower than the ones represented on the remainder of the plot. Their stem L does not contribute any digits, so their original values are precisely their leaf values.")
+    st.code("\nIn the full stem and leaf plot below, the 'L' row, if present, contains data values of magnitudes lower than the ones represented on the remainder of the plot. Their stem L does not contribute any digits, so their original values are precisely their leaf values.")
 
-    st.text("\n\nFull Double Stem and Leaf Plot:\n\n")
+    st.code("\n\nFull Double Stem and Leaf Plot:\n\n")
 
     stems=sl_range([add_zeros(str(num),ml) for num in data],stem_pos_py)
 
@@ -452,8 +456,8 @@ def doublestemandleaf():
         leafstring1=("  ".join(sml1))
         leafstring2=("  ".join(sml2))
         pad=maxsl-len(leafstring1)
-        st.text("  "+(" "*pad) + leafstring1[::-1]+"  |  " + "L"+ " "*(Lpad-1) + "  |  " + leafstring2)
-        st.text("")
+        st.code("  "+(" "*pad) + leafstring1[::-1]+"  |  " + "L"+ " "*(Lpad-1) + "  |  " + leafstring2)
+        st.code("")
     
     for key in sorted(list(allkeys)):
         
@@ -467,8 +471,8 @@ def doublestemandleaf():
         leafstring1=("  ".join(dict1[key])) #[::-1]
         leafstring2=("  ".join(dict2[key]))
         pad=maxsl-len(leafstring1)
-        st.text("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2)
-        st.text("")
+        st.code("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2)
+        st.code("")
 
     return None
 
