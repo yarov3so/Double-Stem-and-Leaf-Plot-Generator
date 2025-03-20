@@ -214,7 +214,7 @@ def doublestemandleaf():
     else:
         stem_pos_py=str(data_ml).index(".") - stem_pos
     
-    st.markdown("\n\n ## Compact Double Stem and Leaf Plot:\n\n")
+    st.markdown(" #### Compact Double Stem and Leaf Plot:")
 
     stems=sl_range([add_zeros(str(num),ml) for num in data],stem_pos_py)
 
