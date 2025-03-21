@@ -147,8 +147,7 @@ def truncate(num,pos):
 
 def doublestemandleaf():
     
-    st.markdown("*by yarov3so*")
-    st.text("Generates a compact and a full double stem and leaf plot for two (reasonably well-behaved) sets of values.")
+    st.markdown("Generates a compact and a full double stem and leaf plot for two (reasonably well-behaved) sets of values.")
 
     data1=st.text_input("Enter all the values from the first data set, separated by commas: ")
     data2=st.text_input("Enter all the values from the second data set, separated by commas: ")
@@ -479,6 +478,11 @@ def doublestemandleaf():
         output+=("  "+(" "*pad) + leafstring1[::-1]+"  |  " + fullkey + "  |  " + leafstring2+"\n\n")
 
     st.code(f"```\n{output}```",language="")
+
+    st.text("")
+    st.markdown("""*Crafted by yarov3so*   
+<a href="https://www.buymeacoffee.com/yarov3so" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="width: 9em; height: auto; padding-top: 0.7em; padding-bottom: 1em" ></a>  
+See my other [Math Help Tools](https://mathh3lptools.streamlit.app)""",unsafe_allow_html=True)
 
     return None
 
