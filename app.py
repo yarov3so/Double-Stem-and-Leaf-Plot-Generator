@@ -111,7 +111,7 @@ def try_int(num):
     try:
         num_int=int(num)
     except:
-        None
+        return num
     if num==num_int:
         return num_int
     else:
