@@ -4,7 +4,12 @@
 import re
 import streamlit as st
 
-st.title("Double Stem and Leaf Plot Generator ")
+st.set_page_config(
+    page_title="Double Stem and Leaf Plot Generator",
+    page_icon="MHT.png", 
+)
+
+st.title("Double Stem and Leaf Plot Generator")
 
 def comprehend(mystring):
     
