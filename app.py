@@ -328,6 +328,8 @@ def doublestemandleaf():
         
 
     st.text("\nIn the full stem and leaf plot below, the 'L' row, if present, contains data values of magnitudes lower than the ones represented on the remainder of the plot. Their stem L does not contribute any digits, so their original values are precisely their leaf values.")
+    st.markdown("*NOTE: When the stems capture variation in the first digit of each value, the compact and full stem and leaf plots are identical.*")
+
 
     st.markdown("#### Full Double Stem and Leaf Plot:")
 
