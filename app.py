@@ -315,7 +315,7 @@ def doublestemandleaf():
         if key not in dict2.keys():
             dict2[key]=[""]
 
-    maxsl=max(len(("  ".join(dict1[key]))) for key in allkeys) #2+
+    maxsl=2+max(len(("  ".join(dict1[key]))) for key in allkeys) 
 
     output=""
     for key in sorted(list(allkeys)):
